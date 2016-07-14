@@ -1,5 +1,3 @@
 tart_celery_worker:    celery -A tasks worker --loglevel=info
 start_celery_beat :    celery -A tasks beat
 stop_celery       :    pkill celery
-
-

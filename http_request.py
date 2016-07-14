@@ -5,8 +5,11 @@ import urllib.request
 import log
 
 
-# 向服务端发送一个get的请求
 def get(url, data=None, timeout=5):
+    '''
+    向服务端发送一个get的请求
+    return: json
+    '''
     if data:
         url += '?' + urllib.parse.urlencode(data)
     result = {}
@@ -23,8 +26,11 @@ def get(url, data=None, timeout=5):
     return result
 
 
-# 向服务端发送一个post的请求
-def post(url, data, timeout=2, ensure_ascii=True):
+def post(url, data, timeout=5, ensure_ascii=True):
+    '''
+    向服务端发送一个post的请求
+    return: json
+    '''
     data = json.dumps(data, ensure_ascii=ensure_ascii)
     data = data.encode('utf-8')
     result = {}

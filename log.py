@@ -3,8 +3,10 @@ import sys
 import datetime
 
 
-# 自定义打印log日志
 def printLog(fileName, *params):
+    '''
+    自定义打印log日志
+    '''
     now = datetime.datetime.now()
     fileName = os.path.split(fileName)[1]
     try:

@@ -8,8 +8,10 @@ config = configparser.ConfigParser()
 config.read('config.txt')
 
 
-# 更新access token
 def update_access_token():
+    '''
+    更新access token
+    '''
     url = config['url']['token']
     data = {
         'grant_type': 'client_credential',
