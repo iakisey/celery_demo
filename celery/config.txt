@@ -1,0 +1,12 @@
+[url]
+token = https://api.weixin.qq.com/cgi-bin/token
+
+[wechat.info]
+appid = wx114b9ad05a6e07de
+appsecret = b1743d8aceafaff236aadea32d3d4b75
+
+[wechat]
+update_time = 2016-08-01 22:05:14.801773
+access_token = 4ev5uZm1Io2M7OSx-W2yfM6Be3fBZ7C92RTVSTIUgSlY5kju7-bZ7EKM4QRBLa_F_rVpp4avO6cyTCtiTlKYSYhVM0ySeqMs1QJ6atkwc-i7E3Xul6ISrbLDbcJHi1xrMHQdAFATOX
+expires_time = 2016-08-02 00:05:14.801773
+

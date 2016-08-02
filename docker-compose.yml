@@ -1,0 +1,14 @@
+version: '2'
+services:
+  
+  web:
+    build: .
+    command: supervisord -c supervisord.conf
+    volumes:
+     - .:/app
+    ports:
+     - "5000:5000"
+    links:
+     - redis
+  redis:
+    image: redis
