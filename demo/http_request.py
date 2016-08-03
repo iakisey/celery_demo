@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 import json
-import urllib.parse
-import urllib.request
+import urllib
 
 import log
 
@@ -11,18 +11,17 @@ def get(url, data=None, timeout=5):
     return: json
     '''
     if data:
-        url += '?' + urllib.parse.urlencode(data)
+        url += '?' + urllib.urlencode(data)
     result = {}
     try:
-        f = urllib.request.urlopen(url, timeout=timeout)
+        f = urllib.urlopen(url)
     except Exception as e:
-        log.printLog(__file__, 'Exception: ', e)
+        log.print_log(__file__, 'Exception: ', e)
     else:
         result = f.read()
         result = result.decode('utf-8')
         result = json.loads(result)
-        if not f.closed:
-            f.close()
+        f.close()
     return result
 
 
@@ -35,9 +34,9 @@ def post(url, data, timeout=5, ensure_ascii=True):
     data = data.encode('utf-8')
     result = {}
     try:
-        f = urllib.request.urlopen(url, data, timeout)
+        f = urllib.urlopen(url, data, timeout)
     except Exception as e:
-        log.printLog(__file__, 'Exception: ', e)
+        log.print_log(__file__, 'Exception: ', e)
     else:
         result = f.read()
         result = result.decode('utf-8')

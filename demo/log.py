@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 import datetime
@@ -22,7 +23,7 @@ def print_log(*params):
     for param in params:
         s += str(param)
     print(s)
-    with open('log', mode='a', encoding='utf-8') as f:
+    with open('log', mode='a') as f:
         f.write(s + '\n')
         f.flush()
 

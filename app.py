@@ -1,14 +1,12 @@
 import tornado.web
+import tornado.autoreload
 import configparser
-from redis import Redis
-
-config = configparser.ConfigParser()
-config.read('config.txt')
-redis = Redis(host='redis', port=6379)
 
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        config = configparser.ConfigParser()
+        config.read('./demo/config.txt')
         self.write(config['wechat']['update_time'])
 
 Apprequest = [
@@ -22,4 +20,5 @@ Application = tornado.web.Application(
 if __name__ == "__main__":
     Application.listen(5000)
     loop = tornado.ioloop.IOLoop.instance()
+    tornado.autoreload.start(loop)
     loop.start()

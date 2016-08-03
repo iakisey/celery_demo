@@ -3,12 +3,13 @@ services:
   
   web:
     build: .
-    command: supervisord -c supervisord.conf
+    command: supervisord -c supervisord.conf  # 明确指定配置文件
     volumes:
      - .:/app
     ports:
      - "5000:5000"
     links:
      - redis
+  
   redis:
     image: redis

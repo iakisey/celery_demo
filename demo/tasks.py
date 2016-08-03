@@ -1,11 +1,13 @@
 import celery
+import celery_conf
 
 app = celery.Celery(
     'tasks',
-    backend='redis://localhost',
-    broker='redis://localhost:6379'
+    backend='redis://redis',
+    broker='redis://redis:6379'
 )
-app.config_from_object('celery_conf')
+app.config_from_object(celery_conf)
+celery.platforms.C_FORCE_ROOT = True
 
 
 @app.task

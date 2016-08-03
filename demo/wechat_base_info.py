@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 import configparser
 
@@ -5,7 +6,7 @@ import log
 import http_request
 
 config = configparser.ConfigParser()
-config.read('config.txt')
+config.read('./demo/config.txt')
 
 
 def update_access_token():
@@ -25,7 +26,7 @@ def update_access_token():
         'expires_time': now + datetime.timedelta(hours=2),
         'update_time': now,
     }
-    with open('config.txt', 'w') as configfile:
+    with open('./demo/config.txt', 'w') as configfile:
         config.write(configfile)
     log.print_log('access_token: ', result['access_token'])
 
